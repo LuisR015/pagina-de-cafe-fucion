@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Punto de Fusión - Cafetería</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Punto de Fusión</h1>
+            <img src="coffee-bean-logo.png" alt="Icono de grano de café" class="header-coffee-icon">
+            <p>El blend perfecto para tu día.</p>
+        </div>
+        <nav>
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#nosotros">Sobre Nosotros</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+
+        <!-- 🔍 Barra de búsqueda -->
+        <li>
+            <input type="text" id="buscador" placeholder="Buscar producto..." class="search-input">
+        </li>
+
+        <!-- 🛒 Carrito al lado de la barra -->
+        <li>
+            <button class="cart-btn-nav" onclick="openCart()">
+                🛒 <span id="cartCount">0</span>
+            </button>
+        </li>
+    </ul>
+</nav>
+    </header>
+
+    <main>
+
+        <!-- ================= HERO / INICIO ================= -->
+        <section id="inicio" class="hero">
+            <h2>Donde las Ideas y el Café se Encuentran</h2>
+            <p>Descubre granos de origen único y pastelería artesanal en tu nuevo rincón de calma.</p>
+            <a href="#menu" class="btn-principal">Explora Nuestro Menú</a>
+        </section>
+
+        <!-- ================= MENÚ ================= -->
+        <section id="menu" class="menu-section">
+            <h2>Nuestro Menú Completo</h2>
+            <div class="menu-grid">
+                
+                <article class="menu-category">
+                    <h3>☕ I. Bebidas Calientes (La Esencia)</h3>
+                    <ul>
+                        <li>
+                            <span class="product-name">Espresso</span> <span class="price">$40</span>
+                            <p class="description">Un shot concentrado de nuestro blend especial.</p>
+                            <button class="add-cart" onclick="addToCart('Espresso',40)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Americano</span> <span class="price">$50</span>
+                            <p class="description">Espresso diluido, perfecto para el día a día.</p>
+                            <button class="add-cart" onclick="addToCart('Americano',50)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Capuchino</span> <span class="price">$60</span>
+                            <p class="description">Espresso, leche texturizada y una capa gruesa de espuma.</p>
+                            <button class="add-cart" onclick="addToCart('Capuchino',60)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Latte Clásico</span> <span class="price">$65</span>
+                            <p class="description">Nuestro espresso con abundante leche vaporizada.</p>
+                            <button class="add-cart" onclick="addToCart('Latte Clásico',65)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Mocha</span> <span class="price">$70</span>
+                            <p class="description">La mezcla perfecta de chocolate, espresso y leche.</p>
+                            <button class="add-cart" onclick="addToCart('Mocha',70)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Té Chai Latte</span> <span class="price">$60</span>
+                            <p class="description">Infusión de especias con leche y toque dulce.</p>
+                            <button class="add-cart" onclick="addToCart('Té Chai Latte',60)">Agregar</button>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="menu-category">
+                    <h3>❄️ II. Bebidas Frías (Refrescantes)</h3>
+                    <ul>
+                        <li>
+                            <span class="product-name">Cold Brew</span> <span class="price">$75</span>
+                            <p class="description">Café infusionado lentamente por 18 horas. Suave y potente.</p>
+                            <button class="add-cart" onclick="addToCart('Cold Brew',75)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Iced Latte</span> <span class="price">$65</span>
+                            <p class="description">Clásico latte servido sobre hielo.</p>
+                            <button class="add-cart" onclick="addToCart('Iced Latte',65)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Affogato</span> <span class="price">$80</span>
+                            <p class="description">Helado de vainilla ahogado en un shot de espresso caliente.</p>
+                            <button class="add-cart" onclick="addToCart('Affogato',80)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Frappé de Caramelo</span> <span class="price">$85</span>
+                            <p class="description">Café helado, jarabe de caramelo y crema batida.</p>
+                            <button class="add-cart" onclick="addToCart('Frappé de Caramelo',85)">Agregar</button>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="menu-category">
+                    <h3>🥐 III. Pastelería y Repostería (Hecho en Casa)</h3>
+                    <ul>
+                        <li>
+                            <span class="product-name">Croissant de Mantequilla</span> <span class="price">$50</span>
+                            <p class="description">Hojaldre francés, suave y crujiente.</p>
+                            <button class="add-cart" onclick="addToCart('Croissant de Mantequilla',50)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Muffin de Arándanos</span> <span class="price">$55</span>
+                            <p class="description">Húmedo y con un topping de streusel de avena.</p>
+                            <button class="add-cart" onclick="addToCart('Muffin de Arándanos',55)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Brownie Doble Chocolate</span> <span class="price">$60</span>
+                            <p class="description">Denso, meloso y con nueces.</p>
+                            <button class="add-cart" onclick="addToCart('Brownie Doble Chocolate',60)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Tarta del Día</span> <span class="price">$80</span>
+                            <p class="description">Consulta nuestras opciones frescas de temporada.</p>
+                            <button class="add-cart" onclick="addToCart('Tarta del Día',80)">Agregar</button>
+                        </li>
+                    </ul>
+                </article>
+                
+                <article class="menu-category">
+                    <h3>🥪 IV. Algo de Comer (Opciones Ligeras)</h3>
+                    <ul>
+                        <li>
+                            <span class="product-name">Tostada de Aguacate</span> <span class="price">$95</span>
+                            <p class="description">Pan artesanal, aguacate fresco, semillas y un toque de limón.</p>
+                            <button class="add-cart" onclick="addToCart('Tostada de Aguacate',95)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Sándwich de Pavo y Queso</span> <span class="price">$110</span>
+                            <p class="description">Pavo ahumado, queso provolone y aderezo en pan de grano.</p>
+                            <button class="add-cart" onclick="addToCart('Sándwich de Pavo y Queso',110)">Agregar</button>
+                        </li>
+                        <li>
+                            <span class="product-name">Yogur con Granola</span> <span class="price">$80</span>
+                            <p class="description">Yogur natural, granola casera y fruta de estación.</p>
+                            <button class="add-cart" onclick="addToCart('Yogur con Granola',80)">Agregar</button>
+                        </li>
+                    </ul>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ================= SOBRE NOSOTROS ================= -->
+        <section id="nosotros" class="about-section">
+            <h3>Nuestra Historia: El Origen de Punto de Fusión</h3>
+            <p>En Punto de Fusión, creemos que la energía de un buen café alimenta la creatividad y la conversación. Nuestro objetivo es ser el punto de encuentro perfecto, combinando la más alta calidad en granos con un ambiente moderno y acogedor. Cada taza es un <em>blend</em> de pasión y precisión.</p>
+        </section>
+
+        <!-- ================= GALERÍA ================= -->
+        <section id="galeria" class="gallery-section">
+            <h2>Galería de Punto de Fusión</h2>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item large">
+                    <img src="establecimiento-interior.jpg" alt="Interior moderno de la cafetería con mesas de madera y buena iluminación">
+                </div>
+                
+                <div class="gallery-item large">
+                    <img src="establecimiento-barra.jpg" alt="Barra de café con máquina de espresso y barista preparando una bebida">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="producto-latte-art.jpg" alt="Primer plano de un Latte con arte de corazón">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="producto-croissant.jpg" alt="Croissant recién horneado con café">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="producto-cold-brew.jpg" alt="Cold Brew en vaso helado con hielo">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="producto-comida-tostada.jpg" alt="Tostada de aguacate en pan artesanal">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= CONTACTO ================= -->
+        <section id="contacto" class="contact-section">
+            <h3>Visítanos</h3>
+            <p>Dirección: Calle Miguel Aleman 123, Culiacan Sin.</p>
+            <p>Horario: Lunes a Domingo, 7:00 AM - 8:00 PM</p>
+            <p>Teléfono: (555) 123-4567</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Punto de Fusión. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a> |
+            <a href="#" target="_blank">Facebook</a>
+        </div>
+    </footer>
+
+    <!-- ========== CARRITO: BOTÓN Y MODAL ========== -->
+    <button class="cart-btn" onclick="openCart()">🛒 Carrito (<span id="cartCount">0</span>)</button>
+
+    <div id="cartModal" class="modal">
+      <div class="modal-content cart-box">
+          <span class="close" onclick="closeCart()">&times;</span>
+          <h2>Tu Carrito</h2>
+          <div id="cartItems"></div>
+          <h3>Total: $<span id="cartTotal">0</span></h3>
+          <button onclick="clearCart()">Vaciar Carrito</button>
+      </div>
+    </div>
+
+    <!-- ========== LOGIN / REGISTRO ========== -->
+    <button class="login-btn" onclick="openModal('loginModal')">Iniciar Sesión</button>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <input type="text" id="loginUser" placeholder="Usuario">
+            <input type="password" id="loginPass" placeholder="Contraseña">
+            <button onclick="login()">Entrar</button>
+            <p>¿No tienes cuenta? <a href="#" onclick="switchModal('loginModal','registerModal')">Regístrate aquí</a></p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Crear Cuenta</h2>
+            <input type="text" id="regUser" placeholder="Usuario">
+            <input type="password" id="regPass" placeholder="Contraseña">
+            <input type="password" id="regPass2" placeholder="Repetir contraseña">
+            <button onclick="register()">Registrar</button>
+            <p>¿Ya tienes cuenta? <a href="#" onclick="switchModal('registerModal','loginModal')">Inicia sesión</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+   
+    
+</body>
+
+</html>
